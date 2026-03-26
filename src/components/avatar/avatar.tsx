@@ -1,4 +1,5 @@
 import { UserData } from "@/interface/profile"
+import { UserIcon } from "@phosphor-icons/react"
 import Image from "next/image"
 
 export default function Avatar({ user }: { user: UserData }) {
@@ -9,6 +10,11 @@ export default function Avatar({ user }: { user: UserData }) {
         )
     }
     else {
-       return <p className="h-[36px] w-[36px] flex items-center justify-center bg-primary/[0.4] text-white font-bold rounded-full uppercase">{user?.fullname ? user?.fullname.charAt(0) : user?.email?.charAt(0)}</p>
+       return <div className="flex items-center gap-1">
+        <p className="bg-gray-500/[0.2] p-2 rounded-full">
+            <UserIcon size={20} />
+        </p>
+        <p className="md:block hidden">Account</p>
+        </div>
     }
 }

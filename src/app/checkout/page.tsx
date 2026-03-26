@@ -4,19 +4,21 @@ import Input from "@/components/input/input";
 import TotalPrice from "@/components/totalPrice/totalPrice";
 import { storeContext } from "@/context/useStore";
 import { currencyFormatter } from "@/helpers/currencyFormatter";
+import { payWithMonnify } from "@/helpers/payWithMonnify";
+import { ICart, IProduct } from "@/interface/store";
 import { checkoutSchema } from "@/schema/checkout";
-import { Envelope, Globe, MapPin, Phone, User } from "@phosphor-icons/react";
+import { EnvelopeIcon, GlobeIcon, MapPinIcon, PhoneIcon, UserIcon } from "@phosphor-icons/react";
 import { Formik } from "formik";
 import { useContext } from "react";
 import { LoaderIcon } from "react-hot-toast";
 
 export default function CheckoutPage() {
-    const { cart } = useContext(storeContext)
-    
+    const { cart, products } = useContext(storeContext)
+
     return (
         <div className="flex flex-col gap-6">
 
-            <div className="flex flex-col items-center md:px-[8%] px-6 mt-2 py-12 bg-slate-100 dark:bg-dark">
+            <div className="flex flex-col items-center md:px-[8%] px-6 mt-2 py-12 bg-slate-100 dark:bg-gray-500/[0.1]">
                 <h2 className="font-bold text-[28px] uppercase">Checkout</h2>
                 <p>Buy ({cart.length} items) now</p>
             </div>
@@ -24,10 +26,13 @@ export default function CheckoutPage() {
             <div className="flex flex-wrap items-start gap-6 md:px-[8%] px-6 py-4">
                 <div className="lg:w-[60%] w-full flex flex-col gap-2">
                     <Formik
-                        initialValues={{ fullname: '', email: '', country: '', address: '', phone: 0 }}
+                        initialValues={{ fullname: '', email: '', country: '', address: '', phoneIcon: 0 }}
                         validationSchema={checkoutSchema}
                         onSubmit={( values, { setSubmitting }) => {
-                            
+                            console.log(values)
+                            payWithMonnify({ ...values, amount: products.filter((item: IProduct) => cart.map((item: ICart) => item.id).indexOf(item.id) !== -1 )
+                                            .map((product: IProduct) => {return {price: +product?.price * cart.filter(item => item.id === product?.id)[0]?.quantity}})
+                                            .reduce((a: number,v: { price: number }) => a = a + v.price, 0)})
                             setSubmitting(false);
                         }}
                         >
@@ -40,13 +45,13 @@ export default function CheckoutPage() {
                             isSubmitting,
                         }) => (
                             <form onSubmit={handleSubmit} className="flex flex-col w-full gap-6">
-                                <Input name="fullname" label="" value={values.fullname} onChange={handleChange} type="text" error={touched.fullname ? errors.fullname : ""} placeholder="Full name" leftIcon={<User size={16}/>}/>
-                                <Input name="email" label="" value={values.email} onChange={handleChange} type="email" error={touched.email ? errors.email : ""} placeholder="Email" leftIcon={<Envelope size={16}/>}/>
-                                <Input name="country" label="" value={values.country} onChange={handleChange} type="text" error={touched.country ? errors.country : ""} placeholder="Country" leftIcon={<Globe size={16}/>}/>
-                                <Input name="address" label="" value={values.address} onChange={handleChange} type="text" error={touched.address ? errors.address : ""} placeholder="Address" leftIcon={<MapPin size={16}/>}/>
-                                <Input name="phone" label="" value={values.phone} onChange={handleChange} type="text" error={touched.phone ? errors.phone : ""} placeholder="Phone number" leftIcon={<Phone size={16}/>}/>
+                                <Input name="fullname" label="" value={values.fullname} onChange={handleChange} type="text" error={touched.fullname ? errors.fullname : ""} placeholder="Full name" leftIcon={<UserIcon size={16}/>}/>
+                                <Input name="email" label="" value={values.email} onChange={handleChange} type="email" error={touched.email ? errors.email : ""} placeholder="Email" leftIcon={<EnvelopeIcon size={16}/>}/>
+                                <Input name="country" label="" value={values.country} onChange={handleChange} type="text" error={touched.country ? errors.country : ""} placeholder="Country" leftIcon={<GlobeIcon size={16}/>}/>
+                                <Input name="address" label="" value={values.address} onChange={handleChange} type="text" error={touched.address ? errors.address : ""} placeholder="Address" leftIcon={<MapPinIcon size={16}/>}/>
+                                <Input name="phoneIcon" label="" value={values.phoneIcon} onChange={handleChange} type="text" error={touched.phoneIcon ? errors.phoneIcon : ""} placeholder="PhoneIcon number" leftIcon={<PhoneIcon size={16}/>}/>
 
-                                <Button className="full" disabled={isSubmitting} >{ isSubmitting ? <LoaderIcon/> : "Buy now" }</Button>
+                                <Button className="w-full" variant="secondary" type="button" disabled={isSubmitting} >{ isSubmitting ? <LoaderIcon/> : "Buy now" }</Button>
                             </form>
                         )}
                         </Formik>
@@ -65,14 +70,14 @@ export default function CheckoutPage() {
                         </div>
                         <div className="flex justify-between items-center">
                             <p>Discount</p>
-                            <p>{currencyFormatter(cart.length !== 0 ? 1000 : 0)}</p>
+                            <p>{currencyFormatter(0)}</p>
                         </div>
                         <div className="flex justify-between items-center">
                             <p>Total</p>
-                            <p className="text-lg font-bold"><TotalPrice discount={cart.length !== 0 ? 1000 : 0} /></p>
+                            <p className="text-lg font-bold"><TotalPrice /></p>
                         </div>
                     </div>
-                    <Button href="/shop" variant="secondary" className="mb-4 w-full">Back to shop</Button>
+                    <Button href="/" variant="secondary" className="mb-4 w-full">Back to shop</Button>
                 </div>
             </div>
 

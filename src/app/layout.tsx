@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} antialiased text-dark dark:bg-black dark:text-white/[0.9] text-[12px] md:mt-0 mt-[66px]`}
+        className={`${inter.className} antialiased 2xl:text-[16px] xl:text-[14px] text-[13px] text-gray-900 md:mt-0`}
       >
         <AuthProvider>
         <StoreContextProvider>

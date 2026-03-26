@@ -9,8 +9,11 @@ export default function ProductCard({ product }: { product: IProduct }) {
     const { wishlist, addToWishlist, removeFromWishlist, cart, addToCart, removeFromCart } = useContext(storeContext)
 
     return (
-        <div className={`flex flex-col bg-white dark:bg-[#000]/[0.1] relative break-inside-avoid md:mb-4 mb-2 pb-4 `} data-aos="fade-up">
-                <Link href={`/product?id=${product.id}`} className="block rounded-[10px] sm:h-[250px] h-[250px] bg-gray-500/[0.1] bg-cover bg-center" style={{backgroundImage: `url("${product?.images[0]}")`}} >
+        <div className={`flex flex-col relative md:mb-4 mb-2 pb-4 `}>
+                <Link href={`/product?id=${product.id}`} >
+                    <div  className="rounded-[10px] w-full aspect-square bg-gray-500/[0.1] bg-cover bg-center" style={{backgroundImage: `url("${product?.images[0]}")`}}>
+
+                    </div>
                 </Link>
                 <div className="absolute top-3 right-3 cursor-pointer z-[2]">
                     {
@@ -21,10 +24,10 @@ export default function ProductCard({ product }: { product: IProduct }) {
                     }
                 </div>
                 
-                <p className="text-[10px] opacity-[0.5] uppercase font-bold px-3 py-0 my-2">{product?.category}</p>
-                <a href={`/product?id=${product.id}`} className="block pb-4 px-3 leading-[130%] text-[12px] uppercase font-semibold">{product?.title}</a>
-                <div className="flex flex-wrap gap-3 justify-between items-center text-[16px] opacity-[0.7] px-3">
-                    {currencyFormatter(+product?.price)} 
+                <p className="text-[12px] opacity-[0.5] uppercase font-bold px-3 py-0 my-2">{product?.category}</p>
+                <a href={`/product?id=${product.id}`} className="block pb-4 px-3 leading-[130%] font-medium">{product?.title}</a>
+                <div className="flex flex-wrap gap-3 justify-between items-center opacity-[0.7] px-3 ">
+                    <p className="font-semibold text-lg">{currencyFormatter(+product?.price)} </p>
 
                     <div className="border border-gray-500/[0.1] rounded-full p-2 cursor-pointer z-[2]">
                     {

@@ -14,7 +14,7 @@ export default function CartPage() {
     return (    
         <div className="flex flex-col gap-6">
 
-            <div className="flex flex-col items-center md:px-[8%] px-6 mt-2 py-12 bg-slate-100 dark:bg-dark">
+            <div className="flex flex-col items-center md:px-[8%] px-6 py-12 bg-slate-100 dark:bg-gray-500/[0.1]">
                 <h2 className="font-bold text-[28px] uppercase">My Cart</h2>
                 <p>Manage your cart ({cart.length} items)</p>
             </div>
@@ -31,7 +31,7 @@ export default function CartPage() {
                     </div>
                     :
                     products.filter((item: IProduct) => cart.map((item: ICart) => item.id).indexOf(item.id) !== -1 ).map((product: IProduct) => (
-                        <div key={product?.id} className="relative bg-white dark:bg-black flex items-center gap-2 p-2 rounded border border-gray-500/[0.1] dark:border-slate-100/[0.05]">
+                        <div key={product?.id} className="relative bg-white dark:bg-gray-500/[0.1] flex items-center gap-2 p-2 rounded border border-gray-500/[0.1] dark:border-slate-100/[0.05]">
                             <a href={`/product?id=${product?.id}`}>
                                 <Image src={product?.images[0]} alt={product?.title} width={200} height={300} className="rounded bg-gray-100/[0.8] h-full" />
                             </a>
@@ -59,7 +59,7 @@ export default function CartPage() {
                 }
                 </div>
                 
-                <div className="sm:sticky top-4 gap-2 md:w-[30%] w-[100%] rounded-[20px] p-6 bg-gray-300/[0.08]">
+                <div className="sm:sticky top-4 gap-2 md:w-[30%] w-[100%] rounded-[8px] p-6 bg-gray-500/[0.1] border border-gray-500/[0.1]">
                     <h2 className="text-[16px] uppercase font-bold">Summary</h2>
                     <div className="flex flex-col gap-2 py-6">
                         <div className="flex justify-between items-center">
@@ -72,15 +72,15 @@ export default function CartPage() {
                         </div>
                         <div className="flex justify-between items-center">
                             <p>Discount</p>
-                            <p>{currencyFormatter(cart.length !== 0 ? 1000 : 0)}</p>
+                            <p>{currencyFormatter(0)}</p>
                         </div>
                         <div className="flex justify-between items-center">
                             <p>Total</p>
-                            <p className="text-lg font-bold"><TotalPrice discount={cart.length !== 0 ? 1000 : 0} /></p>
+                            <p className="text-lg font-bold"><TotalPrice /></p>
                         </div>
                     </div>
                     <Button href="/checkout" disabled={cart.length === 0} className="mb-4 w-full">Proceed to checkout</Button>
-                    <Button href="/shop" variant="secondary" className="w-full">Continue shopping</Button>
+                    <Button href="/" variant="secondary" className="w-full">Continue shopping</Button>
                 </div>
             
             </div>

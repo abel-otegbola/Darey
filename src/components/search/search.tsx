@@ -1,5 +1,5 @@
 'use client'
-import { MagnifyingGlass } from "@phosphor-icons/react";
+import { MagnifyingGlassIcon } from "@phosphor-icons/react";
 import { ReactNode, useState } from "react";
 
 interface dropdownProps {
@@ -18,11 +18,11 @@ export default function Search({ value, onChange, className, disabled, placehold
     return (
         <form action={`/search`} className="relative flex flex-col w-full gap-1">
 
-            <div className={`flex items-center gap-1 relative rounded-full bg-white dark:bg-primary/[0.04] dark:text-gray w-full p-1 px-4 border duration-500 
-                ${focus ? "border-primary shadow-input-active" : "border-black/[0.2] "}
+            <div className={`flex items-center gap-1 relative rounded-full bg-white dark:bg-gray-500/[0.1] dark:text-gray w-full p-1 px-4 border duration-500 
+                ${focus ? "border-primary shadow-input-active" : "border-gray-500/[0.2] "}
                 ${className}
             `}>
-                <span className="opacity-[0.5]"><MagnifyingGlass /></span>
+                <span className="opacity-[0.5]"><MagnifyingGlassIcon /></span>
                 <input 
                     className={` p-2 w-full outline-none bg-transparent
                         ${className} 

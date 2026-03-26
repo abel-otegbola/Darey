@@ -14,7 +14,7 @@ const config: Config = {
         "secondary": "#D4BEE4",
         "tetiary": "#EEEEEE",
         "dark": "#333446",
-        "black": "#212A37",
+        "black": "#222222",
         "blue": "#1e2e47"
       },
       boxShadow: {
