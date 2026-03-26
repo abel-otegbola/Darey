@@ -1,6 +1,5 @@
 'use client'
 import { useContext, useEffect, useState } from "react"
-import { FaHeart, FaMinus, FaPlus } from "react-icons/fa"
 import Button from "../../components/button/button"
 import { storeContext } from "@/context/useStore"
 import { useSearchParams } from "next/navigation"
@@ -11,6 +10,7 @@ import { gadgets } from "@/data/products"
 import { currencyFormatter } from "@/helpers/currencyFormatter"
 import Slider from "@/components/slider/slider"
 import Link from "next/link"
+import { HeartIcon, MinusIcon, PlusIcon } from "@phosphor-icons/react"
 
 export default function Product() {
     const searchParams = useSearchParams()
@@ -74,9 +74,9 @@ export default function Product() {
                                     <div>
                                         {
                                             wishlist.indexOf(id || "") === -1 ? 
-                                            <button className="flex items-center gap-2 animate-zoom-in text-tetiary h-[40px] px-4" onClick={() => addToWishlist(id || "") }><FaHeart size={20}/></button> 
+                                            <button className="flex items-center gap-2 animate-zoom-in text-tetiary h-[40px] px-4" onClick={() => addToWishlist(id || "") }><HeartIcon size={20}/></button> 
                                             : 
-                                            <button className="flex items-center gap-2 animate-zoom-in h-[40px] px-4 text-red-500" onClick={() => removeFromWishlist(id || "")}><FaHeart size={20}/></button> 
+                                            <button className="flex items-center gap-2 animate-zoom-in h-[40px] px-4 text-red-500" onClick={() => removeFromWishlist(id || "")}><HeartIcon size={20}/></button> 
                                         }
                                     </div>
                                 </div>
@@ -136,9 +136,9 @@ export default function Product() {
                                         <div className="flex flex-wrap gap-6">
                                             <Button variant="tetiary" onClick={() => removeFromCart(id || "")}>Remove from Cart</Button>
                                             <div className="flex items-center gap-1 animate-zoom-in border border-gray-500/[0.1] rounded-lg">
-                                                <button className="h-[40px] p-[12px]" onClick={() => changeQuantity(id || "", "MINUS")}><FaMinus /></button>
+                                                <button className="h-[40px] p-[12px]" onClick={() => changeQuantity(id || "", "MINUS")}><MinusIcon /></button>
                                                 <input className="p-[4px] py-0 text-center rounded bg-transparent w-[40px] text-[10px] py-2 text-center border border-gray-500/[0.2]" type="number" value={cart.filter((item: ICart) => item.id === id).map((item: ICart) => item.quantity).toString()} onChange={(e) => changeQuantity(id, +e.target.value)} />
-                                                <button className="h-[40px] p-[12px]" onClick={() => changeQuantity(id || "", "ADD")}><FaPlus /></button>
+                                                <button className="h-[40px] p-[12px]" onClick={() => changeQuantity(id || "", "ADD")}><PlusIcon /></button>
                                             </div> 
                                             <Button href="/checkout">Proceed to Checkout</Button>
                                         </div>

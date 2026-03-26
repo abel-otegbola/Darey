@@ -1,6 +1,4 @@
 'use client'
-import { TbListDetails, TbTrash } from "react-icons/tb"
-import { PiCheckCircle, PiCurrencyNgn } from "react-icons/pi"
 import { useContext, useEffect, useState } from "react"
 import { database } from "../../../firebase/firebase"
 import { child, get, ref, set } from "firebase/database"
@@ -10,6 +8,7 @@ import { storeContext } from "@/context/useStore"
 import Image from "next/image"
 import { ICart, IProduct } from "@/interface/store"
 import { currencyFormatter } from "@/helpers/currencyFormatter"
+import { CheckCircleIcon, CurrencyNgnIcon, ListIcon, TrashIcon } from "@phosphor-icons/react"
 
 export default function OrderSummary() {
     const searchParams = useSearchParams()
@@ -67,7 +66,7 @@ export default function OrderSummary() {
                             ["pending", "processing", "Delivered", "Completed"].map((status: string, i: number) => (
                                 <div key={i} className={`relative flex flex-col gap-2 items-center ${i < 2 ? "text-emerald-600" : "text-gray-500/[0.4]"}`}>
                                     <span className={`absolute h-[3px] ${i < 2 ? "bg-emerald-600" : "bg-gray-500/[0.2]"} top-[11px] left-0 ${i === 0 ? "w-[50%] left-[50%]" : i === 3 ? "w-[50%]" : "w-[100%] "}`}></span>
-                                    <PiCheckCircle className="relative text-[25px] rounded-full bg-white dark:bg-black z-[2]" /> 
+                                    <CheckCircleIcon className="relative text-[25px] rounded-full bg-white dark:bg-black z-[2]" /> 
                                     <span>{status}</span>
                                 </div>
                             ))
@@ -93,12 +92,12 @@ export default function OrderSummary() {
                     </div>
                 </div>
             
-                <Button size="full" disabled={order.paymentStatus === "cancelled"} onClick={() => cancelOrder()}><TbTrash /><span>Cancel Order</span></Button>
+                <Button size="full" disabled={order.paymentStatus === "cancelled"} onClick={() => cancelOrder()}><TrashIcon /><span>Cancel Order</span></Button>
 
             </div>
 
             <div className="md:w-[40%] w-full md:mt-2 mt-12 my-2 p-4 bg-gray-200/[0.09] border border-gray-500/[0.2]">
-                <h2 className="text-primary font-semibold uppercase flex items-center gap-1"><TbListDetails className="text-[18px]" /> Order details</h2>
+                <h2 className="text-primary font-semibold uppercase flex items-center gap-1"><ListIcon className="text-[18px]" /> Order details</h2>
                 <div className="w-full py-2 overflow-x-auto text-[12px]">
                     <table className="table-auto text-left border-collapse w-full min-w-[400px]">
                         <thead>
@@ -114,7 +113,7 @@ export default function OrderSummary() {
                                 .map((product: IProduct) => (
                                     <tr key={product.id} className="border border-gray-500/[0.2] border-x-transparent">
                                         <td  className="py-2 gap-2"><Image src={product?.images[0]} alt={product.title} className="w-[30px] bg-gray-600 rounded" /> {product?.title}.</td>
-                                        <td  className="py-2"><PiCurrencyNgn className="inline" /> {product?.price}.00</td>
+                                        <td  className="py-2"><CurrencyNgnIcon className="inline" /> {product?.price}.00</td>
                                         <td className="py-2">{order.cart.filter((item: ICart) => item.id === product?.id).map((item: ICart) => item.quantity)}</td>
                                     </tr>
                                 ))

@@ -1,7 +1,6 @@
 'use client'
 import { ReactElement, useState } from "react";
-import { TbDashboard, TbListDetails, TbLogout, TbPackage, TbSettings, TbStar, TbUser, TbUsers } from "react-icons/tb";
-import { Icon } from "@phosphor-icons/react";
+import { BoxArrowUpIcon, GearIcon, HouseIcon, Icon, ListIcon, SignOutIcon, StarIcon, UserIcon, UsersIcon } from "@phosphor-icons/react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Avatar from "@/components/avatar/avatar";
@@ -23,17 +22,17 @@ export default function Layout({
     // const router = useRouter()
 
     const generalLinks: Link[] = [
-        { id: 0, label: "Dashboard", icon: <TbDashboard />, link: "/dashboard" },
-        { id: 1, label: "Orders", icon: <TbListDetails />, link: "/dashboard/orders" },
-        { id: 2, label: "Profile", icon: <TbUser />, link: "/dashboard/profile" },
-        { id: 3, label: "Settings", icon: <TbSettings />, link: "/settings" },
+        { id: 0, label: "Dashboard", icon: <HouseIcon />, link: "/dashboard" },
+        { id: 1, label: "Orders", icon: <ListIcon />, link: "/dashboard/orders" },
+        { id: 2, label: "Profile", icon: <UserIcon />, link: "/dashboard/profile" },
+        { id: 3, label: "Settings", icon: <GearIcon />, link: "/settings" },
     ]
 
     const storeLinks: Link[] = [
         ...generalLinks,
-        { id: 4, label: "Products", icon: <TbPackage />, link: "/dashboard/products" },
-        { id: 5, label: "Customers", icon: <TbUsers />, link: "/dashboard/customers" },
-        { id: 6, label: "Reviews", icon: <TbStar />, link: "/dashboard/review" },
+        { id: 4, label: "Products", icon: <BoxArrowUpIcon />, link: "/dashboard/products" },
+        { id: 5, label: "Customers", icon: <UsersIcon />, link: "/dashboard/customers" },
+        { id: 6, label: "Reviews", icon: <StarIcon />, link: "/dashboard/review" },
     ]
 
     // if(!data?.user) {
@@ -60,7 +59,7 @@ export default function Layout({
                     </div>
                     
                     <button onClick={() => signOut()} className={`w-full flex items-center my-[3px] px-4 py-1 hover:bg-primary/[0.1] hover:text-primary rounded`}>
-                        <span className="w-[30px] text-lg opacity-[0.6]"><TbLogout /></span>
+                        <span className="w-[30px] text-lg opacity-[0.6]"><SignOutIcon /></span>
                         <span className="py-2 break-normal">Logout</span>
                     </button>
                 </div>
