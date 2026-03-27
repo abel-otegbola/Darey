@@ -1,10 +1,9 @@
 'use client'
-import { ReactElement, useState } from "react";
+import { ReactElement } from "react";
 import { GearIcon, HeartIcon, HouseIcon, Icon, ListMagnifyingGlassIcon, ShoppingBagIcon, SignOutIcon } from "@phosphor-icons/react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import Avatar from "@/components/avatar/avatar";
-import { signOut, useSession } from "next-auth/react";
+import { signOut, } from "next-auth/react";
 
 
 export interface Link {
@@ -16,8 +15,6 @@ export default function Layout({
   }: Readonly<{
     children: React.ReactNode;
   }>) {
-    const { data } = useSession()
-    const [open, setOpen] = useState(false)
     const pathname = usePathname();
 
     const generalLinks: Link[] = [
@@ -30,9 +27,8 @@ export default function Layout({
 
     return (
         <>
-            <button className="md:hidden fixed top-[14px] md:right-9 right-7 md:p-2 z-[4]" onClick={() => setOpen(!open)}><Avatar user={data?.user || { fullname: "user" }} /></button>
             <div className="flex relative w-full my-1 min-h-[85vh] border-t border-gray-500/[0.1] overflow-hidden font-medium">
-                <div className={`flex flex-col w-[280px] h-[88vh] md:sticky fixed md:top-0 top-[64px] py-4 md:px-2 right-0 bg-white border-x border-gray-500/[0.1] overflow-hidden z-[2] transition-all duration-700 ${open ? "translate-x-[0]": "md:translate-x-[0] translate-x-[130%]"}`}>  
+                <div className={`md:flex hidden flex-col w-[280px] h-[88vh] md:sticky fixed md:top-0 top-[64px] py-4 md:px-2 right-0 bg-white border-x border-gray-500/[0.1] overflow-hidden z-[2] transition-all duration-700`}>  
                     <div className="flex flex-col">
                         {
                         generalLinks.map(link => {

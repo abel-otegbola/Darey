@@ -34,7 +34,7 @@ function Topbar() {
         <div className={`bg-[#101020] text-[12px] text-white/[0.5] flex items-center justify-center p-3 ${accountPages.includes(pathname.split("/")[1]) ? "md:px-6 md:py-2 py-5" : "md:px-[8%] px-3"}`}>
             <InfiniteScroll text={"Free shipping available for all phones"} />
         </div>
-        <div className={`flex w-full justify-between items-center bg-gray-900 py-3 text-white backdrop-blur-sm z-[3] ${accountPages.includes(pathname.split("/")[1]) ? "md:px-6 pl-6 pr-[100px] md:py-2 py-5" : "md:px-[8%] px-6"}`}>
+        <div className={`flex w-full justify-between items-center bg-gray-900 py-3 text-white backdrop-blur-sm z-[3] ${accountPages.includes(pathname.split("/")[1]) ? "px-6 md:py-2 py-5" : "md:px-[8%] px-6"}`}>
             <div className="flex items-center gap-8">
                 <Link href="/" className="w-[70px] rounded flex justify-center items-center font-medium">
                     <p className="tracking-[5px] text-[16px]">DAREY</p>
@@ -81,7 +81,7 @@ function Topbar() {
                     <ShoppingCartIcon weight="light" size={20}/>
                     <span className="absolute text-[8px] -top-2 -right-2 px-1 py-0 rounded-full bg-green-600 text-white">{cart.length}</span>
                 </Link>
-                <div ref={closeMenu} className={`relative ${accountPages.includes(pathname.split("/")[1]) ? "md:block hidden" : "block"}`}>
+                <div ref={closeMenu} className={`relative`}>
                     <button className="h-[40px]">
                         <Avatar user={data?.user || { fullname: "user" }} />
                     </button>
@@ -116,10 +116,12 @@ function Topbar() {
             </div>
             {
                 [
-                    { id: 0, title: "Shop", href: "/shop" },
-                    { id: 1, title: "Cart", href: "/cart" },
-                    { id: 2, title: "Wishlist", href: "/wishlist" },
-                    { id: 3, title: "Compare", href: "/compare" },
+                    { id: 0, title: "Dashboard", href: "/account" },
+                    { id: 1, title: "Shop", href: "/shop" },
+                    { id: 2, title: "Orders", href: "/account/orders" },
+                    { id: 3, title: "Wishlist", href: "/wishlist" },
+                    { id: 4, title: "Compare", href: "/compare" },
+                    { id: 5, title: "Settings", href: "/settings" },
                 ].map(link => (
                     <div key={link.id} className="md:px-0 md:py-0">
                         <Link
