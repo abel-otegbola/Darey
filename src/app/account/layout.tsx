@@ -48,7 +48,7 @@ export default function Layout({
                     </button>
                 </div>
 
-                <div className="flex-1 md:p-8 md:py-8 p-6 mb-12">
+                <div className="flex-1 bg-gray-500/[0.06]">
                 {
                     children
                 }
