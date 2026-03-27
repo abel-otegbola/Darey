@@ -24,7 +24,7 @@ export default function Loginpage() {
                             <p className="mt-2 mb-3 text-center">Add your details below to get back into the app</p>
                         </div>
 
-                        <Button  variant="tetiary" onClick={() => sociallogin("/dashboard")} className="bg-white dark:bg-black border-gray-500/[0.2]"><GoogleIcon width={12} />Login with Google</Button>
+                        <Button  variant="tertiary" onClick={() => sociallogin("/dashboard")} className="bg-white dark:bg-black border-gray-500/[0.2]"><GoogleIcon width={12} />Login with Google</Button>
 
                         <p>OR</p>
 

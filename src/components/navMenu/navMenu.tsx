@@ -22,7 +22,7 @@ export default function Menu ({ close, list }: MenuProps) {
                         href={item.href}
                         onClick={() => item.title === "Logout" ? signOut() : close(false)}
                         className={`flex items-center gap-2 h-[32px] p-[8px] hover:text-primary font-semibold rounded-[4px]
-                            ${pathname === item.href ? "bg-tetiary dark:bg-dark text-primary" : ""}
+                            ${pathname === item.href ? "bg-tertiary dark:bg-dark text-primary" : ""}
                         `}
                     >
                         <span className="text-lg opacity-[0.6]">{item.icon}</span>

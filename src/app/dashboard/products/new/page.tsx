@@ -57,13 +57,13 @@ export default function Userproducts() {
                     <div className="flex gap-4 flex-col">
                         <div className="flex flex-col gap-2 py-4">
                             <label htmlFor="images"> Images</label>
-                            <div className="h-[150px] gap-2 w-full overflow-x-auto bg-tetiary/[0.5] dark:bg-tetiary/[0.09] rounded p-2">
+                            <div className="h-[150px] gap-2 w-full overflow-x-auto bg-tertiary/[0.5] dark:bg-tertiary/[0.09] rounded p-2">
 
                             </div>
                             <Input id="images" type="file" className="hidden" onChange={(e) => setData({ ...data, images: [...data.images, e.target.value ]})} placeholder="Enter product title" />
                             <label htmlFor="images" className="px-3 py-1 border border-gray-500/[0.2] rounded w-fit">New Image</label>
                         </div>
-                        <div className="flex flex-col gap-2 py-4 px-2 bg-tetiary/[0.2] dark:bg-tetiary/[0.09] rounded">
+                        <div className="flex flex-col gap-2 py-4 px-2 bg-tertiary/[0.2] dark:bg-tertiary/[0.09] rounded">
                             <label htmlFor="tags">Tags</label>
                             <div className="flex gap-2 items-center">
                                 <Input id="tags" value={tag} onChange={(e) => setTag(e.target.value)} placeholder="Enter product tags" />

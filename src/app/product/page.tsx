@@ -87,7 +87,7 @@ export default function Product() {
                             <div>
                                 {
                                     wishlist.indexOf(id || "") === -1 ? 
-                                    <button className="flex items-center gap-2 animate-zoom-in text-tetiary h-[40px] px-4" onClick={() => addToWishlist(id || "") }><HeartIcon size={20}/></button> 
+                                    <button className="flex items-center gap-2 animate-zoom-in text-tertiary h-[40px] px-4" onClick={() => addToWishlist(id || "") }><HeartIcon size={20}/></button> 
                                     : 
                                     <button className="flex items-center gap-2 animate-zoom-in h-[40px] px-4 text-red-500" onClick={() => removeFromWishlist(id || "")}><HeartIcon size={20}/></button> 
                                 }

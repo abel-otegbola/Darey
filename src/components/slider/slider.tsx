@@ -135,7 +135,7 @@ export default function Slider({ images }: ImagesProps) {
 
             <div className="absolute bottom-0 flex p-2 gap-1 bg-white/[0.9] dark:bg-black/[0.8] backdrop-blur-sm border border-gray-500/[0.05] rounded-full">
                 <Button
-                    variant="tetiary"
+                    variant="tertiary"
                     onClick={prevSlide}
                     className="px-0 border-none text-dark/[0.4] dark:text-white/[0.7] bg-transparent hover:bg-transparent"
                 >
@@ -154,7 +154,7 @@ export default function Slider({ images }: ImagesProps) {
                     ))}
                 </div>
                 <Button
-                    variant="tetiary"
+                    variant="tertiary"
                     onClick={nextSlide}
                     className="px-0 border-none text-dark/[0.4] dark:text-white/[0.7] bg-transparent hover:bg-transparent"
                 >
