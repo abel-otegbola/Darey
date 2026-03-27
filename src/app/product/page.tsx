@@ -168,7 +168,7 @@ export default function Product() {
                                 </div>
                                 
                             }
-                                <Button variant="secondary" className="border-green-400 text-green-400 w-full">
+                                <Button href="https://wa.me/+2347060989331" variant="secondary" className="border-green-400 text-green-400 w-full">
                                     <WhatsappLogoIcon />
                                     Message Us
                                 </Button>
