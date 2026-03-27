@@ -1,7 +1,7 @@
 'use client'
-import { ReactNode, useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import Link from "next/link"
-import { Bell, Heart, ShoppingCart, Storefront, UserCircle } from "@phosphor-icons/react"
+import { Bell, ShoppingCart } from "@phosphor-icons/react"
 import Avatar from "../avatar/avatar"
 import { usePathname } from "next/navigation"
 import Search from "../search/search"
@@ -9,13 +9,6 @@ import { storeContext } from "@/context/useStore"
 import { useSession } from "next-auth/react"
 import { useOutsideClick } from "@/helpers/useClickOutside"
 import InfiniteScroll from "../slider/infinitescroll"
-
-type navTab =  {
-    id: number | string,
-    label: string,
-    to: string,
-    icon: ReactNode
-}
 
 function Topbar() {
     const { cart } = useContext(storeContext)
@@ -30,13 +23,6 @@ function Topbar() {
           document.documentElement.classList.remove('dark')
         }
     })
-
-    const navTabs: navTab[] = [
-        { id: 0, label: "Shop", to: "/", icon: <Storefront/> },
-        { id: 1, label: "Cart", to: "/cart", icon: <ShoppingCart/> },
-        { id: 2, label: "Wishlist", to: "/wishlist", icon: <Heart/> },
-        { id: 3, label: "Account", to: "/dashboard", icon: <UserCircle/> },
-    ]
     
     const accountPages = ["dashboard", "admin", "agent"]
 
@@ -69,7 +55,7 @@ function Topbar() {
                             [
                                 { id: 0, title: "Shop", href: "/shop" },
                                 { id: 1, title: "Cart", href: "/cart" },
-                                { id: 1, title: "Wishlist", href: "/wishlist" },
+                                { id: 2, title: "Wishlist", href: "/wishlist" },
                             ].map(link => (
                                 <div key={link.id} className="md:px-0 md:py-0">
                                     <Link
@@ -131,7 +117,7 @@ function Topbar() {
                 [
                     { id: 0, title: "Shop", href: "/shop" },
                     { id: 1, title: "Cart", href: "/cart" },
-                    { id: 1, title: "Wishlist", href: "/wishlist" },
+                    { id: 2, title: "Wishlist", href: "/wishlist" },
                 ].map(link => (
                     <div key={link.id} className="md:px-0 md:py-0">
                         <Link
