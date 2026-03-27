@@ -59,9 +59,9 @@ export default function Product() {
     }, [id])
 
     return (
-        <div className="md:px-[8%] px-4 md:py-[50px] py-[20px]">
+        <div className="lg:px-[8%] px-4 lg:py-[50px] py-[20px]">
                 <div className="relative flex flex-wrap my-2 mb-10 rounded">
-                    <div className="relative h-full md:w-[40%] w-full">
+                    <div className="relative h-full lg:w-[40%] w-full">
                         <div className="relative h-[560px] w-full">                                
                             <Slide arrows={false} canSwipe autoplay indicators={true} cssClass="" easing="linear" transitionDuration={500} duration={4000} infinite>
                                 {
@@ -93,8 +93,8 @@ export default function Product() {
                             </Slide>
                         </div>
                     </div>
-                    <div className="md:px-[3%] md:py-0 py-6 md:w-[60%] w-full">
-                        <h2 className="py-2 md:text-[28px] text-[18px] font-medium">{product?.title}</h2>
+                    <div className="lg:px-[3%] lg:py-0 py-6 lg:w-[60%] w-full">
+                        <h2 className="py-2 lg:text-[28px] text-[18px] font-medium">{product?.title}</h2>
                         <div className="flex justify-between items-center gap-6">
                             <p className="flex items-center text-[24px] font-bold py-4">{currencyFormatter(+(product?.price || 0))}</p>
                             <div>
