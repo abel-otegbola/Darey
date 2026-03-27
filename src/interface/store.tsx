@@ -10,6 +10,7 @@ export interface IProduct {
     condition: string,
     warranty: string,
     images: string[];
+    videos?: string[];
     variations: {
         colors: {
             name: string, img: string, hex: string
@@ -18,7 +19,7 @@ export interface IProduct {
             name: string, img: string, price: number
         }[];
     };
-    offers:{
+    offers?:{
         name: string, code: string
     }[];
     createdAt: string;

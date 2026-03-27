@@ -59,24 +59,37 @@ export default function Product() {
     }, [id])
 
     return (
-        <div className="md:px-[8%] px-6 md:py-[50px] py-[20px]">
+        <div className="md:px-[8%] px-4 md:py-[50px] py-[20px]">
                 <div className="relative flex flex-wrap my-2 mb-10 rounded">
                     <div className="relative h-full md:w-[40%] w-full">
                         <div className="relative h-[560px] w-full">                                
-                            <Slide arrows={false} canSwipe autoplay indicators={true} cssClass="" easing="linear" transitionDuration={500} duration={2000} infinite>
+                            <Slide arrows={false} canSwipe autoplay indicators={true} cssClass="" easing="linear" transitionDuration={500} duration={4000} infinite>
+                                {
+                                    product?.videos?.map((video, index) => (
+                                        <div
+                                            key={index}
+                                            className={`each-slide-effect h-[540px] rounded-lg overflow-hidden`}
+                                        >
+                                            <video width="420" height="540" controls autoPlay={true} loop>
+                                                <source src={video} type="video/mp4" />
+                                            </video>
+                                        </div>
+                                    ))
+                                }
                                 {
                                     product?.images?.map((img, index) => (
-                                            <div
-                                                key={index}
-                                                className={`each-slide-effect relative flex flex-col gap-4 justify-center md:px-[8%] px-4 pb-[3%] top-0 h-[540px] rounded-lg overflow-hidden`}
-                                            >
-                                            <Image alt={img} key={index} fill={true} className={`absolute top-0 left-0 w-full h-full bg-cover bg-center object-cover`} 
-                                                src={img}
-                                                unoptimized 
-                                            />
-                                            </div>
-                                        ))     
-                                    }
+                                        <div
+                                            key={index}
+                                            className={`each-slide-effect relative flex flex-col gap-4 justify-center top-0 h-[540px] rounded-lg overflow-hidden`}
+                                        >
+                                        <Image alt={img} key={index} fill={true} className={`absolute top-0 left-0 w-full h-full bg-cover bg-center object-cover`} 
+                                            src={img}
+                                            unoptimized 
+                                        />
+                                        </div>
+                                    ))     
+                                }
+                                    
                             </Slide>
                         </div>
                     </div>

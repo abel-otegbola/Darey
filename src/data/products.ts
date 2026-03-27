@@ -42,9 +42,6 @@ export const gadgets = [
           { name: "256GB", img: "/products/iphone16.png", price: 1000000 },
         ],
       },
-      offers: [
-        { name: "Free Shipping", code: "FREESHIP" },
-      ],
       createdAt: "2024-11-14T10:00:00Z",
       updatedAt: "2024-11-14T10:00:00Z",
       rating: 4.8,
@@ -102,12 +99,62 @@ export const gadgets = [
             { name: "256GB", img: "/products/iphone15-pro.png", price: 990000 }
             ]
         },
-        offers: [
-            { name: "Free Delivery within Lagos", code: "LAGOSFREE" }
-        ],
         createdAt: "2026-03-27T10:00:00Z",
         updatedAt: "2026-03-27T10:00:00Z",
         rating: 4.7,
         store: "DAREY"
     },  
+    {
+      id: "2",
+      title: "Open Box iPhone 17 Air (256GB, White)",
+      price: 1280000,
+      slug: "iphone-17-air",
+      description: `<div class="container">
+        <h1>Open Box iPhone 17 Air</h1>
+
+        <p>
+          Get a <strong>premium iPhone 17 Air (Open Box)</strong> — almost brand new, 
+          fully tested, and in perfect working condition.
+        </p>
+
+        <ul>
+          <li>✅ <strong>256GB Storage</strong> – plenty space for apps, photos & videos</li>
+          <li>✅ <strong>100% Battery Health</strong> (BH 100%)</li>
+          <li>✅ Open Box – neat, no faults, no repairs</li>
+          <li>✅ Sleek White finish – clean & classy look</li>
+          <li>✅ Smooth performance with latest features</li>
+        </ul>
+
+        <p>
+          Buy with confidence — fully tested, no hidden issues, no stories.
+        </p>
+
+        <div class="footer">
+          📍 Available for pickup or delivery within Lagos
+        </div>
+      </div>`,
+      tags: ["smartphone", "Apple", "iOS", "5G"],
+      category: "iphone",
+      condition: "Open box",
+      warranty: "Tested & verified (No issues)",
+      stocks: 45,
+      images: [
+        "/products/iphone17-air.png",
+      ],
+      videos: [
+        "/products/iphone17-air-video.mp4"
+      ],
+      variations: {
+        colors: [
+          { name: "White", img: "/products/iphone17air.png", hex: "#fff" }
+        ],
+        size: [
+          { name: "256GB", price: 1260000, img: "/products/iphone17air.png" }
+        ]
+      },
+      createdAt: "2026-03-27T10:00:00Z",
+      updatedAt: "2026-03-27T10:00:00Z",
+      rating: 4.8,
+      store: "DAREY"
+    }
 ];
