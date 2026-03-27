@@ -56,6 +56,7 @@ function Topbar() {
                                 { id: 0, title: "Shop", href: "/shop" },
                                 { id: 1, title: "Cart", href: "/cart" },
                                 { id: 2, title: "Wishlist", href: "/wishlist" },
+                                { id: 3, title: "Compare", href: "/compare" },
                             ].map(link => (
                                 <div key={link.id} className="md:px-0 md:py-0">
                                     <Link
@@ -118,6 +119,7 @@ function Topbar() {
                     { id: 0, title: "Shop", href: "/shop" },
                     { id: 1, title: "Cart", href: "/cart" },
                     { id: 2, title: "Wishlist", href: "/wishlist" },
+                    { id: 3, title: "Compare", href: "/compare" },
                 ].map(link => (
                     <div key={link.id} className="md:px-0 md:py-0">
                         <Link
