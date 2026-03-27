@@ -7,7 +7,6 @@ import { useRouter } from "nextjs-toploader/app";
 import { UserData } from "@/interface/profile";
 import { app } from "@/firebase/firebase";
 import { SessionProvider, signIn } from "next-auth/react";
-import { register } from "@/actions/register";
 
 type values = {
     user: UserData;
@@ -16,7 +15,7 @@ type values = {
     setPopup: (aug0: values["popup"]) => void;
     setUser: (aug0: unknown) => void;
     login: (email: string, password: string, callbackUrl: string) => void; 
-    signUp: (data: { email: string, password: string, fullname: string, role: string, storename?: string }) => void;
+    signUp: (data: { email: string, password: string, fullname: string, storename?: string }) => void;
     sociallogin: (type: string) => void;
     logOut: () => void;
 }
@@ -37,30 +36,30 @@ const AuthProvider = ({ children }: { children: ReactNode}) => {
 
     const login = async (email: string, password: string, callbackUrl: string) => {
         setLoading(true)
-        const res = await signIn("credentials", { email, password, redirect: false });
-        if(res?.ok) {
-            setPopup({ type: "success", msg: "Login Successful" })
-            setLoading(false)
-            router.push(callbackUrl ? callbackUrl : "/dashboard")
-        }
-        if(res?.error) {
-            setPopup({ type: "error", msg: formatError(res.error as string) })
-            setLoading(false)
-        }
+        console.log("credentials", { email, password, redirect: false }, callbackUrl);
+        // if(res?.ok) {
+        //     setPopup({ type: "success", msg: "Login Successful" })
+        //     setLoading(false)
+        //     router.push(callbackUrl ? callbackUrl : "/dashboard")
+        // }
+        // if(res?.error) {
+        //     setPopup({ type: "error", msg: formatError(res.error as string) })
+        //     setLoading(false)
+        // }
     }
 
-    const signUp = (data: { email: string, password: string, fullname: string, role: string, storename?: string }) => {
+    const signUp = (data: { email: string, password: string, fullname: string, storename?: string }) => {
         setLoading(true)
-        register(data)
-        .then(() => {
-            setLoading(false)
-            setPopup({ type: "success", msg: "Signup Successful, Please login to continue" })
-            router.push("/login")
-        })
-        .catch((error: { message: string }) => {
-            setPopup({ type: "error", msg: formatError(error.message) })
-            setLoading(false)
-        });
+        console.log(data)
+        // .then(() => {
+        //     setLoading(false)
+        //     setPopup({ type: "success", msg: "Signup Successful, Please login to continue" })
+        //     router.push("/login")
+        // })
+        // .catch((error: { message: string }) => {
+        //     setPopup({ type: "error", msg: formatError(error.message) })
+        //     setLoading(false)
+        // });
     }
     
     const sociallogin = async (callbackUrl: string) => {

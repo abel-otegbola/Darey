@@ -11,7 +11,7 @@ export default function Avatar({ user }: { user: UserData }) {
         )
     }
     else {
-       return <Link href="/dashboard" className="flex items-center gap-1">
+       return <Link href="/account" className="flex items-center gap-1">
         <p className="">
             <UserIcon size={20} />
         </p>

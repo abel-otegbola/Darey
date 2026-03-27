@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${outift.className} antialiased 2xl:text-[16px] xl:text-[14px] text-[13px] text-black md:mt-0`}
+        className={`${outift.className} antialiased 2xl:text-[16px] xl:text-[15px] text-[14px] text-black md:mt-0`}
       >
         <AuthProvider>
         <StoreContextProvider>

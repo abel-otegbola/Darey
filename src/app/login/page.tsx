@@ -18,13 +18,13 @@ export default function Loginpage() {
             <div className="flex w-full">
                 <div className="sm:w-[550px] mx-auto w-full p-12">
                     
-                    <div className="flex flex-col items-center gap-6 md:p-[5%] p-2">
-                        <div>
-                            <h1 className="font-bold text-[32px] text-center">Welcome</h1>
-                            <p className="mt-2 mb-3 text-center">Add your details below to get back into the app</p>
+                    <div className="flex flex-col items-center gap-4 md:p-[5%] p-2">
+                        <div className="mb-4">
+                            <h1 className="font-semibold text-[28px] text-center">Welcome</h1>
+                            <p className="text-center">Enter your credentials below to get back into the app</p>
                         </div>
 
-                        <Button  variant="tertiary" onClick={() => sociallogin("/dashboard")} className="bg-white dark:bg-black border-gray-500/[0.2]"><GoogleIcon width={12} />Login with Google</Button>
+                        <Button  variant="secondary" onClick={() => sociallogin("/dashboard")} className="w-full"><GoogleIcon width={12} />Login with Google</Button>
 
                         <p>OR</p>
 
@@ -51,7 +51,7 @@ export default function Loginpage() {
 
                                     <Input name="password" label="" value={values.password} onChange={handleChange} type={"password"} error={touched.password ? errors.password : ""} placeholder="Password" leftIcon={<LockKey size={16}/>}/>
 
-                                    <Button  type="submit" className="">{ isSubmitting || loading ? <Spinner size={16} className="animate-spin" /> : "Login"}</Button>
+                                    <Button  type="submit" className="w-full py-[14px]">{ isSubmitting || loading ? <Spinner size={16} className="animate-spin" /> : "Login"}</Button>
 
                                 </form>
                             )}

@@ -10,7 +10,7 @@ export default function Home() {
     <main className="">
 
       <header
-        className="flex flex-col md:h-[540px] h-[360px] items-start justify-center bg-center bg-cover bg-norepeat bg-[url('/bg.png')]"
+        className="flex flex-col md:h-[540px] h-[360px] items-start justify-center bg-center bg-cover bg-norepeat bg-[url('/bg.webp')]"
       >
         <div className="md:px-[8%] px-4 md:w-[800px] w-[60%] space-y-4">
           <h1 className="font-bold uppercase md:text-6xl sm:text-4xl text-3xl">Best Prices on Iphones</h1>

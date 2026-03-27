@@ -7,7 +7,6 @@ export interface UserData {
     bio?: string,
     cover?: string,
     address?: string,
-    role?: string,
 }
 
 export interface ISignupData { email: string, password: string }
