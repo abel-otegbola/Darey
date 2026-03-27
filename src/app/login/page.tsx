@@ -24,7 +24,7 @@ export default function Loginpage() {
                             <p className="mt-2 mb-3 text-center">Add your details below to get back into the app</p>
                         </div>
 
-                        <Button size="full" variant="tetiary" onClick={() => sociallogin("/dashboard")} className="bg-white dark:bg-black border-gray-500/[0.2]"><GoogleIcon width={12} />Login with Google</Button>
+                        <Button  variant="tetiary" onClick={() => sociallogin("/dashboard")} className="bg-white dark:bg-black border-gray-500/[0.2]"><GoogleIcon width={12} />Login with Google</Button>
 
                         <p>OR</p>
 
@@ -51,7 +51,7 @@ export default function Loginpage() {
 
                                     <Input name="password" label="" value={values.password} onChange={handleChange} type={"password"} error={touched.password ? errors.password : ""} placeholder="Password" leftIcon={<LockKey size={16}/>}/>
 
-                                    <Button size="full" type="submit" className="">{ isSubmitting || loading ? <Spinner size={16} className="animate-spin" /> : "Login"}</Button>
+                                    <Button  type="submit" className="">{ isSubmitting || loading ? <Spinner size={16} className="animate-spin" /> : "Login"}</Button>
 
                                 </form>
                             )}
