@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer/footer";
 import Topbar from "@/components/topbar/topbar";
@@ -7,7 +7,7 @@ import NextTopLoader from "nextjs-toploader";
 import StoreContextProvider from "@/context/useStore";
 import AuthProvider from "@/context/useAuth";
 
-const inter = Inter({ subsets: ['latin'] })
+const outift = Outfit({ subsets: ['latin', 'latin-ext'] })
 
 export const metadata: Metadata = {
   title: "D A R E Y",
@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} antialiased 2xl:text-[16px] xl:text-[14px] text-[13px] text-black md:mt-0`}
+        className={`${outift.className} antialiased 2xl:text-[16px] xl:text-[14px] text-[13px] text-black md:mt-0`}
       >
         <AuthProvider>
         <StoreContextProvider>

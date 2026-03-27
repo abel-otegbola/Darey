@@ -48,6 +48,10 @@ export default function Product() {
             setColor(cart.find(item => item.id === id)?.variation.color || "")
             setSize(cart.find(item => item.id === id)?.variation.size || "")
         }
+        else {
+            setColor(product.variations.colors[0].name)
+            setSize(product.variations.size[0].name)
+        }
     })
 
     useEffect(() => {

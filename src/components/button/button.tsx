@@ -1,11 +1,11 @@
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 import Link from "next/link";
-import { ReactNode, ButtonHTMLAttributes } from "react";
 
 export interface buttonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    variant?: "primary" | "secondary" | "tetiary";
+    variant?: "primary" | "secondary" | "tertiary";
     className?: string;
     href?: string;
-    size?: "full";
+    size?: "small" | "medium" | "large" | "xs";
     disabled?: boolean,
     onClick?: () => void,
     children?: ReactNode
@@ -13,32 +13,39 @@ export interface buttonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export default function Button({ variant, className, href, size, disabled, onClick, children, ...props }: buttonProps) {
     const variants = {
-        primary: "hover:bg-[#000] text-white bg-black",
-        secondary: "hover:bg-black hover:text-white text-black border-2 border-black",
-        tetiary: "bg-gray-500/[0.09] hover:bg-gray-500/[0.2] border border-gray-500/[0.09] "
+        primary: "hover:bg-[#000] bg-black text-white border border-black",
+        secondary: "bg-transparent border-2 border-black",
+        tertiary: "rounded-[4px]"
     }
 
     return (
-        <button className={`duration-500 rounded-lg cursor-pointer font-semibold
-            ${variants[variant || "primary"]}
-            ${disabled ? "opacity-[0.25]" : ""}
-            ${size === "full" ? "w-full" : "w-fit"}
-            ${className} 
-        `}
-        {...props}
-        name="Button"
-        role="button"
-        disabled={disabled}
-        onClick={onClick}
-        >
+       <>
             { 
             href ? 
-                <Link href={href} className="flex items-center justify-center md:gap-3 gap-2 md:py-3 md:px-6 px-3 py-2"> 
+                <Link role="button" href={href} className={`rounded-[6px] flex items-center justify-center md:gap-2 gap-1 w-fit  font-semibold text-nowrap
+                    ${variants[variant || "primary"]} 
+                    ${disabled ? "opacity-[0.25]" : ""} 
+                    ${size === "xs" ? "rounded-[2px] text-[8px] py-[2px] md:px-[8px] px-[4px]" : size === "small" ? "rounded text-[12px] py-[4px] md:px-[12px] px-[8px]" : size === "large" ? "rounded-[12px] md:py-[16px] py-[10px] md:px-[32px] px-[28px]" : "rounded-[8px] md:text-[14px] py-[8px] md:px-[18px] px-[16px]"} 
+                    ${className} 
+                     `}> 
                     { children }
                 </Link>
-                :
-                <span className="flex items-center justify-center md:gap-3 gap-2 md:py-3 md:px-6 px-3 py-2">{ children }</span>
-            }
-        </button>
+
+                : <button className={` duration-500 flex items-center justify-center md:gap-2 gap-1 w-fit cursor-pointer font-semibold text-nowrap
+                    ${variants[variant || "primary"]} 
+                    ${disabled ? "opacity-[0.25]" : ""} 
+                    ${size === "xs" ? "rounded-[2px] text-[8px] py-[2px] md:px-[8px] px-[4px]" : size === "small" ? "rounded text-[12px] py-[4px] md:px-[12px] px-[8px]" : size === "large" ? "rounded-[12px] md:py-[16px] py-[10px] md:px-[32px] px-[28px]" : "rounded-[8px] md:text-[14px] py-[8px] md:px-[18px] px-[16px]"} 
+                    ${className} 
+                `}
+                {...props}
+                name="Button"
+                role="button"
+                disabled={disabled}
+                onClick={onClick}
+                >
+                { children }
+                </button>
+        }
+    </>
     )
 }

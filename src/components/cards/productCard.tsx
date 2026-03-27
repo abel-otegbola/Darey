@@ -1,9 +1,10 @@
 import { storeContext } from "@/context/useStore";
 import { currencyFormatter } from "@/helpers/currencyFormatter";
 import { IProduct } from "@/interface/store";
-import { Heart, ShoppingCartSimple } from "@phosphor-icons/react";
+import { HeartIcon } from "@phosphor-icons/react";
 import Link from "next/link";
 import { useContext } from "react";
+import Button from "../button/button";
 
 export default function ProductCard({ product }: { product: IProduct }) {
     const { wishlist, addToWishlist, removeFromWishlist, cart, addToCart, removeFromCart } = useContext(storeContext)
@@ -18,23 +19,23 @@ export default function ProductCard({ product }: { product: IProduct }) {
                 <div className="absolute top-3 right-3 cursor-pointer z-[2]">
                     {
                         wishlist.indexOf(product.id) === -1 ? 
-                        <Heart className="text-[20px] text-gray-700/[0.3]" onClick={() => addToWishlist(product.id)} /> 
+                        <HeartIcon className="text-[20px] text-gray-700/[0.3]" onClick={() => addToWishlist(product.id)} /> 
                         : 
-                        <Heart weight="fill" className="text-[20px] text-red-500"  onClick={() => removeFromWishlist(product.id)} />
+                        <HeartIcon weight="fill" className="text-[20px] text-red-500"  onClick={() => removeFromWishlist(product.id)} />
                     }
                 </div>
                 
                 <p className="text-[10px] w-fit opacity-[0.5] uppercase font-bold px-2 py-1 m-3 rounded bg-gray-500/[0.1]">{product?.condition}</p>
                 <a href={`/product?id=${product.id}`} className="block px-3 leading-[130%] font-semibold">{product?.title}</a>
-                <div className="flex flex-wrap gap-3 justify-between items-center px-3 ">
+                <div className="flex flex-col gap-3 p-3 ">
                     <p className="font-bold text-lg text-primary">{currencyFormatter(+product?.price)} </p>
 
-                    <div className="border border-gray-500/[0.1] rounded-full p-2 cursor-pointer z-[2]">
+                    <div className="">
                     {
                         cart.map(item => item.id).indexOf(product.id) === -1 ? 
-                        <ShoppingCartSimple className="text-[20px] text-gray-700/[0.3] dark:text-gray-100" onClick={() => addToCart({id: product.id, quantity: 1, variation: { color: "black", size: "LG" }})} /> 
+                            <Button className="w-full px-[16px]" onClick={() => addToCart({id: product.id ||  "0", quantity: 1, variation: { color: product.variations.colors[0].name, size: product.variations.size[0].name }}) }>Add to Cart</Button> 
                         : 
-                        <ShoppingCartSimple weight="fill" className="text-[20px] text-primary"  onClick={() => removeFromCart(product.id)} />
+                            <Button variant="secondary" className="w-full px-[16px]" onClick={() => removeFromCart(product.id || "")}>Remove from Cart</Button>
                     }
                     </div>
                 </div>
