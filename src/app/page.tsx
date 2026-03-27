@@ -22,7 +22,7 @@ export default function Home() {
       </header>
 
       <section className="md:px-[8%] px-4 py-[20px]">
-        <h1 className="md:text-[64px] w-[70%] text-[32px] font-bold py-6 uppercase">Get best deals</h1>
+        <h1 className="md:text-[64px] text-[32px] font-bold py-6 uppercase">Get best deals</h1>
       </section>
 
       <section className="md:px-[8%] px-4 py-[20px] grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4">
