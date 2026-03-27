@@ -51,11 +51,10 @@ const handler = NextAuth({
       return token
     },
     session: async ({ session, token }) => {
-        const { email, fullname, role } = token.uid as { email: string, fullname: string, role: string } 
+        const { email, fullname } = token.uid as { email: string, fullname: string } 
         const userSession = { ...session, user: {
           fullname: fullname,
           email: email,
-          role: role
         }}
 
       return userSession;

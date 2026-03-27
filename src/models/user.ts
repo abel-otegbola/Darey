@@ -28,10 +28,6 @@ const UserSchema = new Schema<UserDocument>({
       type: String,
       required: [true, "Name is required"]
     },
-    role: {
-      type: String,
-      required: [true, "Role is required"]
-    },
     storename: {
       type: String,
       required: [false, ""]

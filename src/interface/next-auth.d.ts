@@ -6,7 +6,6 @@ declare module "next-auth" {
             fullname?: string | null;
             email?: string | null;
             image?: string | null;
-            role?: string; // Add the custom role property here
         };
     }
 }
