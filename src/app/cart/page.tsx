@@ -31,7 +31,7 @@ export default function CartPage() {
                     </div>
                     :
                     products.filter((item: IProduct) => cart.map((item: ICart) => item.id).indexOf(item.id) !== -1 ).map((product: IProduct) => (
-                        <div key={product?.id} className="relative bg-white dark:bg-gray-500/[0.1] flex items-center gap-2 p-2 rounded border border-gray-500/[0.1] dark:border-slate-100/[0.05]">
+                        <div key={product?.id} className="relative bg-gray-500/[0.08] flex items-center gap-2 p-2 rounded border border-gray-500/[0.1] dark:border-slate-100/[0.05]">
                             <a href={`/product?id=${product?.id}`}>
                                 <Image src={product?.images[0]} alt={product?.title} width={200} height={300} className="rounded bg-gray-100/[0.8] h-full" />
                             </a>

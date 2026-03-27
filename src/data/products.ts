@@ -36,7 +36,7 @@ export const gadgets = [
       ],
       variations: {
         colors: [
-          { name: "Teal/white", img: "/products/iphone16.png" },
+          { name: "Teal/white", img: "/products/iphone16.png", hex: "#C1E0E2" },
         ],
         size: [
           { name: "256GB", img: "/products/iphone16.png", price: 1000000 },
@@ -94,8 +94,8 @@ export const gadgets = [
         ],
         variations: {
             colors: [
-            { name: "Natural Titanium", img: "/products/iphone15-pro.png" },
-            { name: "Blue Titanium", img: "/products/iphone15-pro.png" },
+            { name: "Natural Titanium", img: "/products/iphone15-pro.png", hex: "#E5E0DC" },
+            { name: "Blue Titanium", img: "/products/iphone15-pro.png", hex: "#1D2F53" },
             ],
             size: [
             { name: "128GB", img: "/products/iphone15-pro.png", price: 950000 },

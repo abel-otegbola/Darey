@@ -13,6 +13,8 @@ interface IStoreContext {
     addToCart: (aug0: ICart) => void;
     removeFromCart: (id: string) => void;
     changeQuantity: (id: string, action: "ADD" | "MINUS" | number) => void;
+    changeColor: (id: number | string | null, color: string)  => void;
+    changeSize: (id: number | string | null, size: string)  => void;
     wishlist: string[];
     addToWishlist: (aug0: string) => void;
     removeFromWishlist: (id: string) => void;
@@ -62,6 +64,26 @@ export default function StoreContextProvider({ children }: {children: React.Reac
         }))
     }
 
+    const changeColor = (id: number | string | null, color: string) => {
+        const newList = cart.map((item: ICart) => {
+            if(item.id === id) {
+                return {...item, variation: { color, size: item.variation.size } }
+            }
+            else return item;
+        })
+        setCart(newList)
+    }
+
+    const changeSize = (id: number | string | null, size: string) => {
+        const newList = cart.map((item: ICart) => {
+            if(item.id === id) {
+                return {...item, variation: { size, color: item.variation.color } }
+            }
+            else return item;
+        })
+        setCart(newList)
+    }
+
     const addToWishlist = (data: string) => {
         setWishlist([...wishlist, data])
     }
@@ -78,6 +100,8 @@ export default function StoreContextProvider({ children }: {children: React.Reac
         addToCart,
         removeFromCart,
         changeQuantity,
+        changeColor,
+        changeSize,
         wishlist,
         addToWishlist,
         removeFromWishlist,

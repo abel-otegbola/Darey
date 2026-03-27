@@ -12,7 +12,7 @@ export interface IProduct {
     images: string[];
     variations: {
         colors: {
-            name: string, img: string
+            name: string, img: string, hex: string
         }[];
         size: {
             name: string, img: string, price: number
