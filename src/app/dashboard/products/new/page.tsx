@@ -46,7 +46,7 @@ export default function Userproducts() {
                         </div>
                         <div className="flex flex-col gap-2 py-4">
                             <label htmlFor="price">Price</label>
-                            <Input id="price" onChange={(e) => setData({ ...data, price: e.target.value })} placeholder="Enter product price" />
+                            <Input id="price" onChange={(e) => setData({ ...data, price: +e.target.value })} placeholder="Enter product price" />
                         </div>
                         <div className="flex flex-col gap-2 py-4">
                             <label htmlFor="descriptions">Description</label>
