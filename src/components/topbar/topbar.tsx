@@ -1,7 +1,7 @@
 'use client'
 import { useContext, useEffect, useState } from "react"
 import Link from "next/link"
-import { Bell, ShoppingCart } from "@phosphor-icons/react"
+import { ShoppingCartIcon, XIcon } from "@phosphor-icons/react"
 import Avatar from "../avatar/avatar"
 import { usePathname } from "next/navigation"
 import Search from "../search/search"
@@ -76,11 +76,8 @@ function Topbar() {
 
             <div className="flex gap-8 items-center">
                 <Search placeholder="Search products" className="md:flex hidden" />
-                <Link href="/inbox">
-                    <Bell weight="light" size={20}/>
-                </Link>
                 <Link href="/cart" className="relative">
-                    <ShoppingCart weight="light" size={20}/>
+                    <ShoppingCartIcon weight="light" size={20}/>
                     <span className="absolute text-[8px] -top-2 -right-2 px-1 py-0 rounded-full bg-green-600 text-white">{cart.length}</span>
                 </Link>
                 <div ref={closeMenu} className={`relative ${accountPages.includes(pathname.split("/")[1]) ? "md:block hidden" : "block"}`}>
@@ -112,7 +109,10 @@ function Topbar() {
             ${open ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full"}
             transition-opacity duration-500 ease-in-out
         `}>
-            <p className="tracking-[5px] text-[16px] md:hidden pb-5 pt-2">DAREY</p>
+            <div className="flex justify-between items-center md:hidden pb-5 pt-2">
+                <p className="tracking-[5px] text-[16px]">DAREY</p>
+                <button onClick={() => setOpen(false)}><XIcon size={20} /></button>
+            </div>
             {
                 [
                     { id: 0, title: "Shop", href: "/shop" },
