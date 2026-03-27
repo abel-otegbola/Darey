@@ -8,7 +8,7 @@ const ProductsSchema = new Schema<IProduct>({
       required: [true, "Title is required"],
     },
     price: {
-      type: String,
+      type: Number,
       required: [true, "Price is required"]
     },
     description: {
