@@ -31,10 +31,10 @@ function Topbar() {
 
     return (
         <>
-        <div className={`bg-[#101020] text-[12px] text-white/[0.5] flex items-center justify-center p-3 ${accountPages.includes(pathname.split("/")[1]) ? "md:px-6 md:py-2 py-5" : "md:px-[8%] px-3"}`}>
+        <div className={`bg-[#101020] text-[12px] text-white/[0.5] flex items-center justify-center p-3 ${accountPages.includes(pathname.split("/")[1]) ? "md:px-6" : "md:px-[8%] px-3"}`}>
             <InfiniteScroll text={"Free shipping available for all phones"} />
         </div>
-        <div className={`flex w-full justify-between items-center bg-gray-900 py-3 text-white backdrop-blur-sm z-[3] ${accountPages.includes(pathname.split("/")[1]) ? "px-6 md:py-2 py-5" : "md:px-[8%] px-6"}`}>
+        <div className={`flex w-full justify-between items-center bg-gray-900 py-3 text-white backdrop-blur-sm z-[3] ${accountPages.includes(pathname.split("/")[1]) ? "px-6" : "md:px-[8%] px-6"}`}>
             <div className="flex items-center gap-8">
                 <Link href="/" className="w-[70px] rounded flex justify-center items-center font-medium">
                     <p className="tracking-[5px] text-[16px]">DAREY</p>
