@@ -112,7 +112,7 @@ export default function Product() {
                         </div>
                         <p className="py-4">CATEGORY: {product?.category}</p>
 
-                        <div dangerouslySetInnerHTML={{ __html: product?.description || ""}} className="py-4"></div>
+                        <div dangerouslySetInnerHTML={{ __html: product?.description || ""}} className="py-4 leading-[32px]"></div>
                         
 
                         <div className="mt-4 flex flex-wrap gap-4 justify-between items-center py-4 border border-transparent border-y-gray-500/[0.09]">
