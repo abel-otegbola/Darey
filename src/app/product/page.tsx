@@ -8,7 +8,7 @@ import ProductCard from "@/components/cards/productCard"
 import { gadgets } from "@/data/products"
 import { currencyFormatter } from "@/helpers/currencyFormatter"
 import Image from "next/image";
-import { HeartIcon, MinusIcon, PlusIcon } from "@phosphor-icons/react"
+import { HeartIcon, MinusIcon, PlusIcon, WhatsappLogoIcon } from "@phosphor-icons/react"
 import { Slide } from "react-slideshow-image"
 import 'react-slideshow-image/dist/styles.css';
 
@@ -151,24 +151,27 @@ export default function Product() {
                         
 
 
-                        <div className="mt-2 flex items-center gap-4">
+                        <div className="mt-4 flex items-center gap-4">
                             
-                            <div className="text-[14px] sm:px-0 py-4 sm:z-0 z-[20]">
+                            <div className="grid md:grid-cols-2 gap-4 w-full">
                             {
                                 cart.map((item: ICart) => item.id).indexOf(id || "") === -1 ? 
                                 <Button className="w-full px-[16px]" onClick={() => addToCart({id: id ||  "0", quantity: 1, variation: { color, size }}) }>Add to Cart</Button> 
                                 : 
-                                <div className="flex flex-wrap gap-6">
-                                    <Button variant="secondary" onClick={() => removeFromCart(id || "")}>Remove from Cart</Button>
-                                    <div className="flex items-center gap-1 animate-zoom-in border border-gray-500/[0.1] rounded-lg">
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div className="flex w-full items-center justify-between gap-1 animate-zoom-in">
                                         <button className="h-[40px] p-[12px]" onClick={() => changeQuantity(id || "", "MINUS")}><MinusIcon /></button>
-                                        <input className="p-[4px] py-0 text-center rounded bg-transparent w-[40px] text-[10px] py-2 text-center border border-gray-500/[0.2]" type="number" value={cart.filter((item: ICart) => item.id === id).map((item: ICart) => item.quantity).toString()} onChange={(e) => changeQuantity(id, +e.target.value)} />
+                                        <input className="p-[4px] py-0 flex-1 text-center rounded bg-transparent w-[40px] py-2 text-center border border-gray-500/[0.2]" type="number" value={cart.filter((item: ICart) => item.id === id).map((item: ICart) => item.quantity).toString()} onChange={(e) => changeQuantity(id, +e.target.value)} />
                                         <button className="h-[40px] p-[12px]" onClick={() => changeQuantity(id || "", "ADD")}><PlusIcon /></button>
                                     </div> 
-                                    <Button href="/checkout">Proceed to Checkout</Button>
+                                    <Button variant="secondary" className="w-full" onClick={() => removeFromCart(id || "")}>Remove from Cart</Button>
                                 </div>
                                 
                             }
+                                <Button variant="secondary" className="border-green-400 text-green-400 w-full">
+                                    <WhatsappLogoIcon />
+                                    Message Us
+                                </Button>
                             </div>
                             
                         </div>
