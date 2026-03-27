@@ -1,19 +1,21 @@
 export interface IProduct {
     id: string;
     title: string;
-    price: string;
+    price: number;
     slug: string;
     description: string;
     tags: string[];
     category: string;
     stocks: number;
+    condition: string,
+    warranty: string,
     images: string[];
     variations: {
         colors: {
             name: string, img: string
         }[];
         size: {
-            name: string, img: string
+            name: string, img: string, price: number
         }[];
     };
     offers:{

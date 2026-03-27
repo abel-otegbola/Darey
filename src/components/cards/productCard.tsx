@@ -24,10 +24,10 @@ export default function ProductCard({ product }: { product: IProduct }) {
                     }
                 </div>
                 
-                <p className="text-[12px] opacity-[0.5] uppercase font-bold px-3 py-0 my-2">{product?.category}</p>
-                <a href={`/product?id=${product.id}`} className="block pb-4 px-3 leading-[130%] font-medium">{product?.title}</a>
-                <div className="flex flex-wrap gap-3 justify-between items-center opacity-[0.7] px-3 ">
-                    <p className="font-semibold text-lg">{currencyFormatter(+product?.price)} </p>
+                <p className="text-[10px] w-fit opacity-[0.5] uppercase font-bold px-2 py-1 m-3 rounded bg-gray-500/[0.1]">{product?.condition}</p>
+                <a href={`/product?id=${product.id}`} className="block px-3 leading-[130%] font-semibold">{product?.title}</a>
+                <div className="flex flex-wrap gap-3 justify-between items-center px-3 ">
+                    <p className="font-bold text-lg text-primary">{currencyFormatter(+product?.price)} </p>
 
                     <div className="border border-gray-500/[0.1] rounded-full p-2 cursor-pointer z-[2]">
                     {

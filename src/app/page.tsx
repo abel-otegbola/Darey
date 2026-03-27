@@ -1,24 +1,28 @@
 'use client'
 
+import Button from "@/components/button/button";
 import ProductCard from "@/components/cards/productCard";
 import { gadgets } from "@/data/products";
+import Image from "next/image";
 
 export default function Home() {
   
   return (
     <main className="">
 
-      <div
-        className={`flex flex-col md:h-[400px] h-[320px] duration-700 bg-cover bg-center bg-no-repeat`}
-        style={{
-            backgroundImage: `url("/bg1.png")`,
-        }}
+      <header
+        className="relative flex flex-col items-start justify-center"
       >
-
-      </div>
+        <Image src="/bg.png" width={3371} height={1272} alt="hero" className="w-full" />
+        <div className="absolute md:px-[8%] px-4 md:w-[800px] w-[50%] space-y-4">
+          <h1 className="font-bold uppercase md:text-6xl sm:text-4xl text-xl">Best Prices on Iphones</h1>
+          <p className="font-semibold sm:block hidden">100% Original iPhones. Verified Quality.</p>
+          <Button>Shop now</Button>
+        </div>
+      </header>
 
       <section className="md:px-[8%] px-4 py-[20px]">
-        <h1 className="md:text-[64px] w-[70%] text-[32px] font-bold py-6">BEST DEALS ON IPHONES</h1>
+        <h1 className="md:text-[64px] w-[70%] text-[32px] font-bold py-6 uppercase">Get best deals</h1>
       </section>
 
       <section className="md:px-[8%] px-4 py-[20px] grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4">
